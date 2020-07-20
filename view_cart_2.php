@@ -45,10 +45,11 @@ include_once("library/config.inc.php");
         border: 0 none;
         border-radius: 3px;
         box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-        padding: 20px 30px;
+        /* padding: 20px 30px; */
         box-sizing: border-box;
-        width: 80%;
-        margin: 0 10%;
+        width: 100%;
+        /* margin: 0 10%; */
+        position: relative;
 
         /*stacking fieldsets above each other*/
         position: relative;
@@ -277,7 +278,7 @@ include_once("library/config.inc.php");
 
     tr.main-heading th {
         background: #ccc;
-        padding: 1em 4.72em;
+        padding: 1em 7.6em;
         font-size: 0.9em;
     }
 
@@ -287,7 +288,12 @@ include_once("library/config.inc.php");
     }
 
     td.cakes {
-        padding: 1em 0em !important;
+        /* padding: 1em 0em !important; */
+        padding: 1em 3em !important;
+    }
+    td.cakes_de {
+        /* padding: 1em 0em !important; */
+        padding: 1em 3em !important;
     }
 
     td {
@@ -377,100 +383,129 @@ include_once("library/config.inc.php");
         background: #0b507c;
         border-radius: 3px;
     }
+   
+    .table-fixed {
+	 width: 100%;
+	  
+}
+ .table-fixed tbody {
+	 height: 350px;
+	 overflow-y: auto;
+	 width: 100%;
+}
+ .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
+	 display: inline-block;
+}
+ 
+ .table-fixed thead tr th {
+	 float: left;
+	 
+}
+ 
+
+
 
     /* fin del primer slide */
     </style>
 
     <main>
         <div class="container margin_60_35" style="    height: 140vh;" id="view_cart">
-
+         
             <!-- multistep form -->
             <form id="msform">
                 <!-- progressbar -->
                 <ul id="progressbar">
-                    <li class="active" style="color:black!important;">Account Setup</li>
-                    <li style="color:black!important;">Social Profiles</li>
-                    <li style="color:black!important;">Personal Details</li>
+                    <li class="active" style="color:black!important;">Carrito</li>
+                    <li style="color:black!important;">Opciones</li>
+                    <li style="color:black!important;">Detalles</li>
                     <li style="color:black!important;">Final</li>
                 </ul>
                 <!-- fieldsets -->
                 <fieldset>
                     <div class="cart-bottom">
-                        <div class="table">
-                            <table>
-                                <tbody>
-                                    <tr class="main-heading">
-                                        <th>Images</th>
-                                        <th class="long-txt">Product Description</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
+                        <div class="table table-fixed">
+                            <table >
+                            <thead>
+                                    <tr class="main-heading"   >
+                                        <th>Imagen</th>
+                                        <th class="long-txt">Descripcion</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio</th>
                                         <th>Total</th>
                                     </tr>
+                            </thead>
+                                <tbody>
+                                    
+                                    <?php
+									$cart_box = '<ul class="cart-products-loaded">';
+									$total = 0;
+
+									foreach ($_SESSION["products"] as $product) {
+										$product_img = $product["Imagen"];
+										$product_name = $product["NombreProd"];
+										$product_price = $product["Precio"];
+										$product_code = $product["CodigoProd"];
+                                        $product_qty = $product["product_qty"];
+                                        $modelo_prod = $product["Modelo"];
+                                        $marca_prod =  $product["Marca"];
+
+
+										$ordenU =  ejecutarSQL::consultar("SELECT `producto`.*, `perfil`.* FROM `producto` , `perfil`;");
+
+										while ($ordenP = mysqli_fetch_assoc($ordenU)) {
+
+											$product_ganancia = $ordenP['ganancia'];
+											$product_medio = $ordenP['medio'];
+											$product_price_total = ($product_price * ($product_ganancia + $product_medio) / 100 + $product_price);
+											$igv_total = ($product_price_total * $product_qty) / 1.18;
+										}
+										$subtotal = ($product_price_total * $product_qty);
+										$total = ($total + $subtotal);
+										?>
+
+
+
                                     <tr class="cake-top">
                                         <td class="cakes">
                                             <div class="product-img">
                                                 <img class="img-inside"
-                                                    src="assets/img-products/case-gambyte-navi-600w-negro-1-panel-de-vidrio-led-rgb.jpg">
+                                                    src="assets/img-products/<?php echo $product_img; ?>">
                                             </div>
                                         </td>
-                                        <td class="cake-text" align="left">
+                                        <td class="cakes_de cake-text" align="left">
                                             <div class="product-text">
-                                                <h3>CASE CON FUENTE 600W</h3>
-                                                <p>Modelo: NAVI GTA80818A</p>
-                                                <p>Marca: GAMBYTE</p>
-                                                <p>Codigo: P000001</p>
+                                                <h3><?php echo $product_name; ?></h3>
+                                                <p>Modelo: <?php echo $modelo_prod; ?></p>
+                                                <p>Marca: <?php echo $marca_prod; ?></p>
+                                                <p>Codigo: <?php echo $product_code; ?></p>
                                             </div>
                                         </td>
-                                        <td class="quantity">
-                                            <div class="product-right">
-                                                <input min="1" type="number" id="quantity" name="quantity" value="1"
-                                                    class="form-control input-small">
+                                        <td class="cakes quantity"  >
+                                            <div class="product-right" >
+                                            <input type="number" data-code="<?php echo $product_code; ?>"
+                                        class="form-control  quantity " style="border: 2px solid #6b6363;"
+                                        value="<?php echo $product_qty; ?>">
                                             </div>
                                         </td>
-                                        <td class="price">
-                                            <h4>$12.99</h4>
+                                        <td class="cakes price">
+                                        <?php echo $currency;
+													echo sprintf("&nbsp; %01.2f", number_format($product_price_total, 2) ); ?></h4>  
+                                                    
                                         </td>
-                                        <td class="top-remove">
-                                            <h4>$25.98</h4>
+                                        <td class="cakes top-remove">
+                                        <h4><?php echo $currency;  
+													echo sprintf("&nbsp; %01.2f", round($product_price_total * $product_qty)); ?></h4>
                                             <div class="close-btm">
-                                                <h5>Remove</h5>
+                                                <a href="javascript:" class=" remove-item"
+                                        data-code="<?php echo $product_code; ?>"><h5>Remover</h5> </a>
+
+                                        
                                             </div>
                                         </td>
 
                                     </tr>
-                                    <tr class="cake-bottom">
-                                        <td class="cakes">
-                                            <div class="product-img2">
-                                                <img class="img-inside"
-                                                    src="assets/img-products/case-gambyte-navi-600w-negro-1-panel-de-vidrio-led-rgb.jpg">
-                                            </div>
-                                        </td>
-                                        <td class="cake-text" align="left">
-                                            <div class="product-text">
-                                                <h3>CASE CON FUENTE 600W</h3>
-                                                <p>Modelo: NAVI GTA80818A</p>
-                                                <p>Marca: GAMBYTE</p>
-                                                <p>Codigo: P000001</p>
-                                            </div>
-                                        </td>
-                                        <td class="quantity">
-                                            <div class="product-right">
-                                                <input min="1" type="number" id="quantity" name="quantity" value="1"
-                                                    class="form-control input-small">
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <h4>$12.99</h4>
-                                        </td>
-                                        <td class="top-remove">
-                                            <h4>$25.98</h4>
-                                            <div class="close-btm">
-                                                <h5>Remove</h5>
-                                            </div>
-                                        </td>
-
-
-                                    </tr>
+                                    <div class="clear"> </div>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -490,61 +525,59 @@ include_once("library/config.inc.php");
                     <br><br>
                     <div class="payment-method" align="center">
                         <label for="comprar" class="method cart-checkout">
-                             
-                        <img style="width: 200px;" src="assets\img\comprar2.svg" />
+
+                            <img style="width: 200px;" src="assets\img\comprar2.svg" />
                             <div class="radio-input">
-                                <input id="comprar" type="radio" name="opciones" 
-                                    onclick="javascript:yesnoCheck();">
+                                <input id="comprar" type="radio" name="opciones" onclick="javascript:yesnoCheck();">
                                 Comprar Productos
                             </div>
                         </label>
 
                         <label for="cotizar" class="method cart-checkout">
-                            <img  style="width: 200px;" src="assets\img\cotizar2.svg" />
+                            <img style="width: 200px;" src="assets\img\cotizar2.svg" />
                             <div class="radio-input">
-                                <input id="cotizar" type="radio" name="opciones" 
-                                    onclick="javascript:yesnoCheck();">
+                                <input id="cotizar" type="radio" name="opciones" onclick="javascript:yesnoCheck();">
                                 Cotizar Productos
                             </div>
                         </label>
-                         
+
                     </div>
                     <br><br>
                     <input type="button" name="previous" class="previous action-button" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                 </fieldset>
-                <fieldset >
-                <div id="ifYes" style="display:none">
-                <h2 class="fs-title">Compras</h2>
-                    <h3 class="fs-subtitle">We will never sell it</h3>
-                    <input type="text" name="fname" placeholder="First Name" />
-                    <input type="text" name="lname" placeholder="Last Name" />
-                    <input type="text" name="phone" placeholder="Phone" />
-                    <textarea name="address" placeholder="Address"></textarea>
-                
-                
-                </div>
-                <div id="ifNo" style="display:none">
-                <h2 class="fs-title">Cotizar</h2>
-                    <h3 class="fs-subtitle">We will never sell it</h3>
-                    <input type="text" name="fname" placeholder="First Name" />
-                    <input type="text" name="lname" placeholder="Last Name" />
-                    <input type="text" name="phone" placeholder="Phone" />
-                    <textarea name="address" placeholder="Address"></textarea>
-                
-                
-                </div>
-                    
+                <fieldset>
+                    <div id="ifYes" style="display:none">
+                        <h2 class="fs-title">Compras</h2>
+                        <h3 class="fs-subtitle">We will never sell it</h3>
+                        <input type="text" name="fname" placeholder="First Name" />
+                        <input type="text" name="lname" placeholder="Last Name" />
+                        <input type="text" name="phone" placeholder="Phone" />
+                        <textarea name="address" placeholder="Address"></textarea>
+
+
+                    </div>
+                    <div id="ifNo" style="display:none">
+                        <h2 class="fs-title">Cotizar</h2>
+                        <h3 class="fs-subtitle">We will never sell it</h3>
+                        <input type="text" name="fname" placeholder="First Name" />
+                        <input type="text" name="lname" placeholder="Last Name" />
+                        <input type="text" name="phone" placeholder="Phone" />
+                        <textarea name="address" placeholder="Address"></textarea>
+
+
+                    </div>
+
                     <input type="button" name="previous" class="previous action-button" value="Previous" />
                     <input type="button" name="next" class="next action-button" value="Next" />
                     <input type="submit" name="submit" class="submit action-button" value="Submit" />
                 </fieldset>
-                 
+
             </form>
 
 
 
-            
+
 
 
 
@@ -556,16 +589,16 @@ include_once("library/config.inc.php");
     <?php include 'inc/scripts.php';  ?>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-     
+
     <script>
-     function yesnoCheck() {
+    function yesnoCheck() {
         if (document.getElementById('comprar').checked) {
-            
+
             document.getElementById('ifYes').style.display = 'block';
             document.getElementById('ifNo').style.display = 'none';
         } else {
             document.getElementById('ifYes').style.display = 'none';
-               document.getElementById('ifNo').style.display = 'block';
+            document.getElementById('ifNo').style.display = 'block';
 
         }
     }

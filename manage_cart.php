@@ -8,14 +8,16 @@ if(isset($_POST["CodigoProd"])) {
 	foreach($_POST as $key => $value){
 		$product[$key] = filter_var($value, FILTER_SANITIZE_STRING);
 	}	
-	$statement = $conn->prepare("SELECT NombreProd, Precio, Imagen FROM producto WHERE CodigoProd=? LIMIT 1");
+	$statement = $conn->prepare("SELECT NombreProd, Modelo, Marca, Precio, Imagen FROM producto WHERE CodigoProd=? LIMIT 1");
 	$statement->bind_param('s', $product['CodigoProd']);
 	$statement->execute();
-	$statement->bind_result($product_name, $product_price, $product_img);
+	$statement->bind_result($product_name, $modelo_prod, $marca_prod, $product_price, $product_img);
 	while($statement->fetch()){ 
 		$product["Imagen"] = $product_img;
 		$product["NombreProd"] = $product_name;
-		$product["Precio"] = $product_price;		
+		$product["Precio"] = $product_price;	
+		$product["Modelo"] = $modelo_prod;
+		$product["Marca"] = $marca_prod;	
 		if(isset($_SESSION["products"])){ 
 			if(isset($_SESSION["products"][$product['CodigoProd']])) {				
 				$_SESSION["products"][$product['CodigoProd']]["product_qty"] = $_SESSION["products"][$product['CodigoProd']]["product_qty"] + $_POST["product_qty"];				
