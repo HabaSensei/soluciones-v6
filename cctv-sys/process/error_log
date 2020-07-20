@@ -1,0 +1,2 @@
+[01-Nov-2019 17:08:33 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'soluci12_user'@'127.0.0.1' (using password: YES) in /home/soluci12/public_html/cctv-sys/library/consulSQL.php on line 5
+[01-Nov-2019 17:08:57 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'soluci12_user'@'127.0.0.1' (using password: YES) in /home/soluci12/public_html/cctv-sys/library/consulSQL.php on line 5

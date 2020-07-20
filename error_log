@@ -1,0 +1,5 @@
+[06-Dec-2019 19:26:03 America/Denver] PHP Notice:  Undefined index: mensaje in /home/efactsod/public_html/send_mail_contactanos.php on line 37
+[10-Dec-2019 07:56:02 America/Denver] PHP Notice:  Undefined index: nombre in /home/efactsod/public_html/send_mail_contactanos.php on line 34
+[10-Dec-2019 07:56:02 America/Denver] PHP Notice:  Undefined index: correo in /home/efactsod/public_html/send_mail_contactanos.php on line 35
+[10-Dec-2019 07:56:02 America/Denver] PHP Notice:  Undefined index: telefono in /home/efactsod/public_html/send_mail_contactanos.php on line 36
+[10-Dec-2019 07:56:02 America/Denver] PHP Notice:  Undefined index: mensaje in /home/efactsod/public_html/send_mail_contactanos.php on line 37

@@ -1,0 +1,524 @@
+/* Normal desktop :992px. */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .cart-area>.btn {
+        width: 59%;
+    }
+    .sin-order i {
+        padding-right: 12px;
+    }
+    .sin-order>span {
+        padding: 12px 10px 15px 0;
+    }
+    .sin-order {
+        padding-left: 15px;
+    }
+    .sin-order .title {
+        font-size: 15px;
+    }
+    .box-content .price-old {
+        padding: 0;
+    }
+    .single-social>a {
+        height: 35px;
+        line-height: 35px;
+        width: 35px;
+    }
+    .single-social {
+        margin-right: 7px;
+    }
+    .footer-static-content i {
+        margin-right: 15px;
+    }
+    .main-menu ul li .mega-menu {
+        width: 732px;
+    }
+    /*index-two*/
+    .home-two-wrapper {
+        width: 985px;
+    }
+    .client.style-two .owl-theme .owl-controls .owl-buttons .owl-next,
+    .client.style-two .owl-theme .owl-controls .owl-buttons .owl-prev {
+        top: -49%;
+    }
+    .client.style-two .owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 12px;
+    }
+    .sort {
+        width: 30%;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -179px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 171px;
+    }
+    .zoom-slider.owl-theme .owl-controls .owl-buttons div {
+        top: 21px;
+    }
+    .sidebar-product .sin-product {
+        margin-right: 1px;
+    }
+    .about-page .about-intro h2 strong {
+        font-size: 37px;
+    }
+    .contact-top-area h2 {
+        font-size: 64px;
+    }
+    /*--------------------------------------------*/
+}
+
+
+/* Tablet desktop :768px. */
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .sin-footer {
+        margin-bottom: 54px;
+    }
+    .cart-area {
+        margin: 0 auto;
+        width: 35%;
+    }
+    .cart-area>.btn {
+        width: 100%;
+    }
+    .main-menu-area {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .title1 span {
+        font-size: 26px;
+    }
+    .title2 span {
+        font-family: "Lato", sans-serif;
+        margin-top: 26px;
+    }
+    .nivo-directionNav a {
+        top: 38%;
+    }
+    .header-middle {
+        padding: 18px 0;
+    }
+    /*index two*/
+    .home-two-wrapper {
+        width: 760px;
+    }
+    .home-two-wrapper .main-menu-area {
+        border: 0px solid #f1f1f1;
+    }
+    .footer-top {
+        padding: 30px 0 0;
+    }
+    .footer-top-wrapper {
+        padding: 35px 0 0;
+    }
+    .client.style-two .owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 26px;
+    }
+    .home-three-wrapper .main-menu-area {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .home-three-wrapper .input-group.form-search {
+        margin: 0 auto;
+        width: 38%;
+    }
+    .home-four-bg .input-group.form-search {
+        margin: 0 auto;
+        width: 41%;
+    }
+    .sort {
+        width: 29%;
+    }
+    .home-four-bg .main-menu-area {
+        margin-bottom: 10px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -136px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 127px;
+    }
+    .zoom-slider.owl-theme .owl-controls .owl-buttons div {
+        top: 21px;
+    }
+    .sin-product-page .product-laft-info .cart-plus-minus-button {
+        height: 40px;
+        margin-right: 12px;
+        padding-right: 11px;
+        padding-top: 1px;
+        width: 65px;
+    }
+    .sin-product-page .product-laft-info .btn.btn-lg {
+        width: 90px;
+    }
+    .sin-product-page .product-laft-info .btn-add-wishlish,
+    .btn-add-compare {
+        width: 36px;
+    }
+    .related-product .owl-theme .owl-controls .owl-buttons div {
+        top: -53px;
+    }
+    .sidebar-product .sin-product {
+        margin-right: 1px;
+    }
+    .sin-product-page .style-three.title-with-bg>span {
+        font-size: 17px;
+        padding: 0;
+    }
+    .sin-product-page .style-three.title-with-bg {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .blog-page-content .style-three.title-with-bg>span {
+        font-size: 15px;
+        padding: 0;
+    }
+    .blog-page-content .style-three.title-with-bg {
+        background: none;
+    }
+    .cart-page-content .style-three.title-with-bg>span {
+        font-size: 17px;
+        padding: 0;
+    }
+    .cart-page-content .style-three.title-with-bg {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .about-page .about-intro {
+        margin-left: 196px;
+    }
+    .contact-top-area .contact-info-area {
+        padding: 0;
+        padding-left: 15px;
+    }
+    .contact-wrapper .contact-form {
+        margin-top: 33px !important;
+    }
+    /*--------------------------------------------*/
+}
+
+
+/* small mobile :320px. */
+
+@media (max-width: 767px) {
+    .sing-banner {
+        margin-bottom: 15px;
+    }
+    .tab-top {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .tab-button li {
+        display: block;
+        margin-top: 16px;
+        padding: 0;
+    }
+    .tab-button li:first-child {
+        padding-left: 0px;
+    }
+    .tab-button li:last-child {
+        padding-right: 0px;
+    }
+    .owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 67px;
+    }
+    .owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -84px;
+    }
+    .small-product-area .tab-content .owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -89px;
+    }
+    .small-product-area .tab-content .owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 80px;
+    }
+    .box-content {
+        padding-left: 8px;
+        padding-top: 13px;
+        width: 100%;
+    }
+    .smal-pro-img {
+        width: 100%;
+    }
+    .sin-order>span {
+        display: none;
+    }
+    .sin-order .title {
+        font-size: 15px;
+    }
+    .sin-footer {
+        margin-bottom: 25px;
+    }
+    .cart-area {
+        margin: 0 auto;
+        width: 52%;
+    }
+    .cart-area>.btn {
+        width: 100%;
+    }
+    .main-menu-area {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .input-group.form-search {
+        margin: 0 auto;
+        width: 66%;
+    }
+    .input-group .form-control {
+        width: 100%;
+    }
+    .logo {
+        margin: 15px 0;
+        text-align: center;
+    }
+    .header-middle {
+        padding: 5px 0 15px;
+    }
+    .header-top {
+        display: none;
+    }
+    .cart-drop {
+        right: -71px;
+        width: 286px;
+    }
+    .nivo-controlNav {
+        display: none;
+    }
+    .banner-top {
+        margin-top: 15px;
+    }
+    .product-area {
+        padding: 10px 0 0;
+    }
+    .client {
+        margin-bottom: 10px;
+    }
+    .footer-payment {
+        text-align: center;
+    }
+    .footer-bottom {
+        text-align: center;
+    }
+    .title-container {
+        display: none;
+    }
+    .preview-2 .nivo-directionNav a.nivo-nextNav::before,
+    .preview-2 .nivo-directionNav a.nivo-prevNav::before {
+        font: 400 25px/43px FontAwesome;
+        height: 40px;
+        top: -56%;
+        width: 40px;
+    }
+    .blog-heading a {
+        font-size: 14px;
+    }
+    /*index two*/
+    .home-two-wrapper {
+        width: 300px;
+    }
+    .client.style-two .owl-theme .owl-controls .owl-buttons div {
+        display: none;
+    }
+    .home-two-wrapper .main-menu-area {
+        border: 0px solid #f1f1f1;
+    }
+    .home-two-wrapper .small-product-area {
+        padding-top: 0;
+    }
+    .order-area.order-style-two {
+        display: none;
+    }
+    /*index three*/
+    .home-three-wrapper .main-menu-area {
+        background: none;
+    }
+    .home-three-wrapper .cart-drop {
+        right: -49px;
+    }
+    .home-three-wrapper .single-banner {
+        margin-bottom: 15px;
+    }
+    .product-area.double-pro .owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -86px;
+    }
+    .product-area.double-pro .owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 81px;
+    }
+    .cart-style-two.cart-area {
+        width: 67%;
+    }
+    .home-four-bg .cart-drop {
+        right: -52px;
+    }
+    .home-four-bg .slider-wrap .slider-area {
+        margin-bottom: 30px;
+    }
+    .shop-area-wrapper .sing-banner {
+        display: none;
+    }
+    .sort {
+        width: 57%;
+    }
+    .sort.sort-by {
+        display: none;
+    }
+    .form-control.show-sort {
+        width: 64%;
+    }
+    .list-detail .pro-bottom {
+        width: 77%;
+    }
+    .shop-area-wrapper .list-detail {
+        padding-right: 10px;
+        padding-top: 15px;
+    }
+    .zoomWindowContainer {
+        display: none;
+    }
+    .zoomContainer .zoomLens {
+        display: none !important;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -147px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 135px;
+    }
+    .zoom-slider.owl-theme .owl-controls .owl-buttons div {
+        top: 23px;
+    }
+    .related-product .owl-theme .owl-controls .owl-buttons div {
+        top: -53px;
+    }
+    .zoomWrapper {
+        margin: 0 auto;
+    }
+    .cart-plus-minus-button {
+        margin-bottom: 13px;
+    }
+    .blog-page-content .sing-banner {
+        display: none;
+    }
+    .children-comment {
+        padding-left: 30px;
+    }
+    .breadcrumb.sin-pro-bc {
+        margin-bottom: 10px;
+    }
+    .accordion-title {
+        margin-bottom: 15px;
+        margin-top: 28px;
+    }
+    .cart-bottom-total {
+        margin: 22px 0;
+    }
+    .cart-page-content .style-three.title-with-bg {
+        margin-bottom: 14px;
+        margin-top: 25px;
+    }
+    .cart-page-content .sing-banner {
+        display: none;
+    }
+    .checkout-wrapper h4.panel-title {
+        font-size: 14px;
+    }
+    .sidebar-menu {
+        margin-bottom: 20px;
+    }
+    .account-page-content {
+        margin-bottom: 0;
+    }
+    .wishlist-page-content {
+        margin-bottom: 31px;
+    }
+    .about-page .about-top {
+        background-image: none;
+        padding: 0 0px;
+    }
+    .about-page .about-intro {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 70px 24px;
+    }
+    .about-page .sin-team {
+        margin-bottom: 26px;
+    }
+    .about-page .about-intro h2 strong {
+        font-size: 38px;
+    }
+    .about-page .about-intro h2 {
+        font-size: 38px;
+    }
+    .breadcrumb {
+        font-size: 12px;
+    }
+    .contact-top-area h2 {
+        font-size: 35px;
+    }
+    .contact-top-area .contact-info-area {
+        padding: 0;
+        padding-left: 15px;
+    }
+    .contact-top-area {
+        padding: 40px 0px;
+    }
+    .contact-wrapper .contact-form {
+        margin-top: 33px !important;
+    }
+    .contact-bottom-area .contact-form span {
+        width: 100%;
+    }
+    .quick-add-to-cart .single_add_to_cart_button {
+        margin-left: 1px;
+        margin-top: 10px;
+        padding: 0px 5px;
+    }
+    /*--------------------------------*/
+}
+
+
+/* Large Mobile :480px. */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container {
+        width: 450px
+    }
+    .cart-area {
+        width: 35%;
+    }
+    .home-two-wrapper {
+        width: 450px;
+    }
+    /*.cart-style-two.cart-area {margin-left: 138px;}*/
+    .home-three-wrapper .cart-drop {
+        right: -52px;
+    }
+    .cart-style-two.cart-area {
+        width: 49%;
+    }
+    .shop-short-wrapper .shop-sort {
+        width: 18%;
+    }
+    .shop-short-wrapper .sort {
+        width: 36%;
+    }
+    .shop-short-wrapper #input-sort {
+        width: 56%;
+    }
+    .sort.sort-by {
+        display: block;
+    }
+    .form-control.show-sort {
+        width: 40%;
+    }
+    .zoom-slider.owl-theme .owl-controls .owl-buttons div {
+        top: 47px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-next {
+        margin-left: 209px;
+    }
+    .sin-product-page .zoom-slider.owl-theme .owl-controls .owl-buttons .owl-prev {
+        margin-left: -219px;
+    }
+    .breadcrumb {
+        font-size: 14px;
+    }
+    .contact-top-area h2 {
+        font-size: 40px;
+    }
+    /*--------------------------------------------*/
+}

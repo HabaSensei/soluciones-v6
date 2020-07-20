@@ -1,0 +1,36 @@
+<form method="post" action="process/updatePedido.php" id="res-update-pedido-'.$fila['id_cotizacion'].'">
+                
+                <div id="update-pedido" class="col-md-12">
+                <div  class="col-md-1">
+					<label >Codigo</label>
+                </div>
+               
+					<div  class="col-md-1" style="background: #ffaa0087;font-weight: bold;">'.$fila['id_cotizacion'].'</div>        
+						
+				
+				<div class="col-md-1">
+					<label >Cliente</label>
+					  
+                </div>
+				<div  class="col-md-2" style="background: #ffaa0087;font-weight: bold;">'.$fila['NombreEmpresa'].'</div> 
+				
+				<div class="col-md-1">
+					<label >ClienteID</label>
+                </div>
+					<div  class="col-md-2" style="background: #ffaa0087;font-weight: bold;">'.$fila['ID'].'</div>       
+					
+				<div class="col-md-1">
+					<label >Estado</label>
+                </div>
+					<select  class="col-md-2" class="form-control" style="height: 25px;" name="pedido-status">';
+				if($fila['Estado']=="0"){
+				echo '<option value="Pendiente">Pendiente</option>'; 
+				echo '<option value="Entregado">Entregado</option>'; 
+				}
+				if($fila['Estado']=="1"){
+				echo '<option value="Entregado">Entregado</option>';
+				echo '<option value="Pendiente">Pendiente</option>'; 
+				}
+				echo        '</select>    
+					
+                <br><br>
