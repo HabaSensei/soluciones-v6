@@ -22,6 +22,7 @@ include_once("library/config.inc.php");
 
 <head>
     <?php include 'inc/links.php'; ?>
+
 </head>
 
 <body>
@@ -51,6 +52,8 @@ include_once("library/config.inc.php");
         /* margin: 0 10%; */
         position: relative;
 
+        /*stacking fieldsets above each other*/
+        position: relative;
         /*stacking fieldsets above each other*/
         position: relative;
     }
@@ -427,7 +430,7 @@ include_once("library/config.inc.php");
                     <li style="color:black!important;">Detalles</li>
                     <li style="color:black!important;">Final</li>
                 </ul>
-                <!-- fieldsets -->
+                <!-- fieldsets 1 -->
                 <fieldset>
                     <div class="cart-bottom">
                         <div class="table table-fixed">
@@ -519,7 +522,7 @@ include_once("library/config.inc.php");
                             </table>
                         </div>
                         <div class="vocher">
-                        <?php
+                            <?php
                         
                         $grand_total = $total;
                         foreach ($taxes as $key => $value) {
@@ -540,7 +543,7 @@ include_once("library/config.inc.php");
 
 
                             <div class="dis-total">
-                                <h1>Sub Total:&nbsp;  <?php echo $currency. number_format($total_format, 2);  ?></h1>
+                                <h1>Sub Total:&nbsp; <?php echo $currency. number_format($total_format, 2);  ?></h1>
 
                             </div>
                             <div class="clear"> </div>
@@ -550,7 +553,8 @@ include_once("library/config.inc.php");
                             </div>
                             <div class="clear"> </div>
                             <div class="dis-total">
-                                <h1>Total:&nbsp; <?php echo $currency. sprintf("%01.2f", $grand_total - $tax_amount);  ?></h1>
+                                <h1>Total:&nbsp;
+                                    <?php echo $currency. sprintf("%01.2f", $grand_total - $tax_amount);  ?></h1>
 
                             </div>
                             <div class="clear"> </div>
@@ -558,6 +562,9 @@ include_once("library/config.inc.php");
                     </div>
                     <input type="button" name="next" class="next action-button" value="Continuar" />
                 </fieldset>
+
+
+                <!-- fieldsets 2-->
                 <fieldset>
                     <h2>¿Que Desea Realizar?</h2>
                     <br><br>
@@ -584,50 +591,116 @@ include_once("library/config.inc.php");
                     <input type="button" name="previous" class="previous action-button" value="Retroceder" />
                     <input type="button" name="next" class="next action-button" value="Continuar" />
                 </fieldset>
+
+
+                <!-- fieldsets 3-->
                 <fieldset>
-                    <div id="ifYes" style="display:none">
+                    <div id="TituloCompras" style="display:none">
                         <h2 class="fs-title">Compras</h2>
-                         
-
-
                     </div>
-                    <div id="ifNo" style="display:none">
+                    <div id="TituloCotiza" style="display:none">
                         <h2 class="fs-title">Cotizar</h2>
-                         
-                        <div class="shop-form">
-							<form method="post" action="process/regCotiza.php">
-								<div class="default-title">
-									<h2>POR FAVOR DIGITE SUS DATOS:</h2>
-								</div>
-								<div class="row" align="left" style="padding-right: 50px; padding-left: 50px;">
-									<div class="form-group col-md-6 col-sm-6 col-xs-12">
-                                    <label>Ruc - Dni <sup>*</sup></label>
-                                    <input class="form-control" id="ruc" name="ruc" value=""  placeholder="Buscar Cliente" autocomplete="off" required>
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" style="    color: #f5f5f5; background: #27ae60; top: -48px; left: 26.5em;font-weight: 600; position: absolute;
-    font-size: 17px;" type="submit" onclick="busqueda(this); return false" ><i class="fa fa-search" aria-hidden="true"></i> SUNAT</button>
-                                    </span>
-                                    <img src="ajax.gif" class="ajaxgif hide" style="position: absolute; margin-top: -10px; margin-left: 13px;">
-                                    </div>
-                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
-										<label>Correo<sup>*</sup></label>
-										<input type="email" name="correo" value="" placeholder="jhon@gmail.com" class="form-control" required>
-									</div><!-- /input-group -->
-									<div class="form-group col-md-6 col-sm-6 col-xs-12">
-										<label>Razón Social<sup>*</sup></label>
-										<input type="text" name="nombre" id="nombre"  placeholder="Razón Social" class="form-control" required>
-									</div>
-									
-									<div class="form-group col-md-6 col-sm-6 col-xs-12">
-										<label>Numero de Celular <sup>*</sup></label>
-										<input type="text" name="telefono" value="" placeholder="0044 43345523" class="form-control" required>
-									</div>
-									<div class="form-group col-md-12 col-sm-12 col-xs-12">
-										<label>Dirección Fiscal <sup>*</sup></label>
-										<input type="text" name="direccion" id="direccion" value="" placeholder="Dirección" class="form-control" required>
-									</div>
-										<label>&nbsp;&nbsp;&nbsp;&nbsp;Todos los Campos <sup>(*)</sup> son Obligatorios</label>
-									<?php 
+                    </div>
+                    <div class="shop-form">
+
+                        <div class="default-title">
+                            <h2>DATOS DE CLIENTE:</h2>
+                        </div>
+                        <div class="row" align="left" style="padding-right: 50px; padding-left: 50px;">
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <label>Ruc - Dni <sup>*</sup></label>
+                                <input class="form-control" id="ruc" name="ruc" value="" placeholder="Buscar Cliente"
+                                    autocomplete="off" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" style="    color: #f5f5f5; background: #27ae60; top: -48px; left: 26.5em;font-weight: 600; position: absolute;
+                                        font-size: 17px;" type="submit" onclick="busqueda(this); return false"><i
+                                            class="fa fa-search" aria-hidden="true"></i> SUNAT</button>
+                                </span>
+                                <img src="ajax.gif" class="ajaxgif hide"
+                                    style="position: absolute; margin-top: -10px; margin-left: 13px;">
+                            </div>
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <label>Correo<sup>*</sup></label>
+                                <input type="email" name="correo" value="" placeholder="jhon@gmail.com"
+                                    class="form-control" required>
+                            </div><!-- /input-group -->
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <label>Razón Social<sup>*</sup></label>
+                                <input type="text" name="nombre" id="nombre" placeholder="Razón Social"
+                                    class="form-control" required>
+                            </div>
+
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <label>Numero de Celular <sup>*</sup></label>
+                                <input type="text" name="telefono" value="" placeholder="0044 43345523"
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <label>Dirección Fiscal <sup>*</sup></label>
+                                <input type="text" name="direccion" id="direccion" value="" placeholder="Dirección"
+                                    class="form-control" required>
+                            </div>
+
+                        </div>
+                        <div id="ifYes" style="display: none;">
+                            <div class="shop-form">
+
+                                <div class="default-title">
+                                    <h2>DATOS DE COMPRA</h2>
+                                </div>
+
+                            </div>
+                            <div class="form-group col-md-3 col-sm-3 col-xs-6 " style="padding-left: 50px;">
+                                <label style="float:left">Forma de Entrega <sup>*</sup></label>
+                                <select class="form-control" id="F_entrega">
+                                    <option>Despacho en Tienda</option>
+                                    <option>Delivery Lima (S/ 15.00)</option>
+                                    <option>Delivery Provincia (S/ 35.00)</option>
+
+
+                                </select>
+
+                            </div>
+                            <div class="form-group col-md-3 col-sm-3 col-xs-6">
+
+                                <label style="float:left">Forma de Pago <sup>*</sup></label>
+                                <select class="form-control" id="F_pago">
+                                    <option>Efectivo </option>
+                                    <option>Pago Electronico</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-3 col-sm-3 col-xs-6">
+
+                                <label style="float:left">Fecha de Despacho <sup>*</sup></label>
+                                <input type="text" name="F_despacho" id="F_despacho" class="form-control "
+                                    placeholder="dd/mm/yy" required>
+
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group col-md-3 col-sm-3 col-xs-6" style="padding-right: 50px;">
+
+                                <label style="float:left">Horarios de Entrega <sup>*</sup></label>
+                                <select class="form-control" id="H_entrega">
+                                    <option>10:00 Am - 12:00 Pm </option>
+                                    <option>1:00 Pm - 5:00 Pm</option>
+
+                                </select>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <?php 
 													 $cod=ejecutarSQL::consultar("SELECT RIGHT(id_cotizacion,6) as CodCotiza FROM cotizacion_online");
 													 $verificaltotal = mysqli_num_rows($cod);
 													 if($verificaltotal<=0){
@@ -639,27 +712,100 @@ include_once("library/config.inc.php");
 													 $codigo1 = "ON$repo";
 													 //print_r($codigo);
 													  } }
-													 ?>	
-									<input type="hidden" name="CodCotiza" value="<?php echo $codigo1 ?>">
-									<input type="hidden" name="fecha" min="<?php echo date("Y-m-d");?>" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>">
-                
-								</div>
-							
-						</div>
-
+													 ?>
+                        <input type="hidden" name="CodCotiza" value="<?php echo $codigo1 ?>">
+                        <input type="hidden" name="fecha" min="<?php echo date("Y-m-d");?>"
+                            max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>">
 
                     </div>
 
+                    <div class="col-md-12" align="center">
+                        <label>&nbsp;&nbsp;&nbsp;&nbsp;Todos los Campos <sup>(*)</sup> son Obligatorios</label>
+
+                    </div>
+                    <div class="clear"> </div>
+                    <br>
                     <input type="button" name="previous" class="previous action-button" value="Retroceder" />
                     <input type="button" name="next" class="next action-button" value="Continuar" />
-                    
+
+
+
+
+
+
                 </fieldset>
 
+
+                <!-- fieldsets 4-->
                 <fieldset>
-                    <div>hola</div>
-                </fieldset>
+                    <div id="descarga_cotiza" style="display:none">
+                        <h2 class="fs-title">Cotiza</h2>
+                    </div>
+                    <div id="descarga_compras" style="display:none">
+                        <h2 class="fs-title">Compras</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div class="payment-method" align="center">
+                            <label for="comprar" class="method cart-checkout">
 
-            </form>
+                                <img style="width: 400px;" src="assets\img\comprar2.svg" />
+
+
+                                Gracias Por su Compra
+                        </div>
+
+                        </label>
+                        <p> Contactar con el </p>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="place-order add_bottom_30">
+						<div class="default-title">
+							<h2>TERMINOS DE COMPRA Y RECOJO EN TIENDA : </h2>
+						</div>
+						<div class="payment-options">
+							<ul>
+								<li>
+								<div class="radio-option">
+									<label for="payment-1"><span class="small-text">*Revise Su Correo, y Descargue su Orden de Compra.</span></label>
+								</div>
+								</li>
+								<li>
+								<div class="radio-option">
+									<label for="payment-1"><span class="small-text">*Aperturarse a la Tienda, Con su Orden de Compra.</span></label>
+								</div>
+								</li>
+								<li>
+								<div class="radio-option">
+									<label for="payment-1"><span class="small-text">*Cancelar El Importe Total de su Orden de Compra.</span></label>
+								</div>
+								</li>
+								<li>
+								<div class="radio-option">
+									<label for="payment-1"><span class="small-text">*Recoger Su Productos Comprados En Almacen.</span></label>
+								</div>
+								</li>
+									
+							</ul>
+						</div>
+						 
+					
+					 
+                            </div>
+                        </div>
+
+                        
+
+
+                        
+                    </div>
+
+        </div>
+        <input type="button" name="previous" class="previous action-button" value="Retroceder" />
+        <input type="button" name="next" class="next action-button" value="Enviar" />
+        </fieldset>
+
+        </form>
+
 
 
 
@@ -677,17 +823,60 @@ include_once("library/config.inc.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <script>
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+            'Octubre', 'Noviembre', 'Diciembre'
+        ],
+        monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+        dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'dd/mm/yy',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function() {
+        $("#F_despacho").datepicker();
+    });
+
     function yesnoCheck() {
         if (document.getElementById('comprar').checked) {
 
+            document.getElementById('TituloCompras').style.display = 'block';
+            document.getElementById('TituloCotiza').style.display = 'none';
+
+            document.getElementById('descarga_compras').style.display = 'block';
+            document.getElementById('descarga_cotiza').style.display = 'none';
+
+
             document.getElementById('ifYes').style.display = 'block';
             document.getElementById('ifNo').style.display = 'none';
+
         } else {
+
+            document.getElementById('TituloCompras').style.display = 'none';
+            document.getElementById('TituloCotiza').style.display = 'block';
+
+            document.getElementById('descarga_compras').style.display = 'none';
+            document.getElementById('descarga_cotiza').style.display = 'block';
+
             document.getElementById('ifYes').style.display = 'none';
             document.getElementById('ifNo').style.display = 'block';
 
         }
     }
+
+
+
+
     //jQuery time
     var current_fs, next_fs, previous_fs; //fieldsets
     var left, opacity, scale; //fieldset properties which we will animate
@@ -778,91 +967,88 @@ include_once("library/config.inc.php");
         });
     });
 
-(function($){
-$.ajaxblock    = function(){
-   $("body").prepend("<div id='ajax-overlay'><div id='ajax-overlay-body' class='center'><i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i><span class='sr-only'>Loading...</span></div></div>");
-   $("#ajax-overlay").css({
-      position: 'absolute',
-      color: '#FFFFFF',
-      top: '0',
-      left: '0',
-      width: '100%',
-      height: '100%',
-      position: 'fixed',
-      background: 'rgba(39, 38, 46, 0.67)',
-      'text-align': 'center',
-      'z-index': '9999'
-   });
-   $("#ajax-overlay-body").css({
-      position: 'absolute',
-      top: '40%',
-      left: '50%',
-      width: '120px',
-      height: '48px',
-      'margin-top': '-12px',
-      'margin-left': '-60px',
-      //background: 'rgba(39, 38, 46, 0.1)',
-      '-webkit-border-radius':   '10px',
-      '-moz-border-radius':      '10px',
-      'border-radius':        '10px'
-   });
-   $("#ajax-overlay").fadeIn(50);
-};
-$.ajaxunblock  = function(){
-   $("#ajax-overlay").fadeOut(100, function()
-   {
-      $("#ajax-overlay").remove();
-   });
-};
-})(jQuery);
-     function busqueda(ruc){
-            //$this.button('loading');
-            $.ajaxblock();
-            $.ajax({
-               data: { "nruc" : $("#ruc").val() },
-               type: "POST",
-               dataType: "json",
-               url: "sunat/consulta.php",
-            }).done(function( data, textStatus, jqXHR ){
-               if(data['success']!="false" && data['success']!=false)
-               {
-                  $("#json_code").text(JSON.stringify(data, null, '\t'));
-
-                  var res = JSON.stringify(data['result']['RUC']);
-                 // alert(data['result']['RUC']);
-                           //console.log(JSON.stringify(respuesta));
-                  $('#direccion').val(data['result']['Direccion']);
-                  $('#nombre').val(data['result']['RazonSocial']);
-                  $('#tipo').val(data['result']['Tipo']);
-                  if(typeof(data['result'])!='undefined')
-                  {
-
-                     //$("#tbody").html("");
-                     $.each(data['result'], function(i, v)
-                     {
-                        //$("#tbody").append('<tr><td>'+i+'<\/td><td>'+v+'<\/td><\/tr>');
-                        
-                     });
-                  }
-
-                  $.ajaxunblock();
-               }else{
-                  if(typeof(data['msg'])!='undefined')
-                  {
-                     alert(data['msg']);
-                     $('#direccion').val('');
-                     $('#tipo').val('');
-                     $('#nombre').val('');
-                  }
-                  //$this.button('reset');
-                  $.ajaxunblock();
-               }
-            }).fail(function( jqXHR, textStatus, errorThrown ){
-               alert( "Solicitud fallida:" + textStatus );
-               $.ajaxunblock();
+    (function($) {
+        $.ajaxblock = function() {
+            $("body").prepend(
+                "<div id='ajax-overlay'><div id='ajax-overlay-body' class='center'><i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i><span class='sr-only'>Loading...</span></div></div>"
+            );
+            $("#ajax-overlay").css({
+                position: 'absolute',
+                color: '#FFFFFF',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                position: 'fixed',
+                background: 'rgba(39, 38, 46, 0.67)',
+                'text-align': 'center',
+                'z-index': '9999'
             });
-}
+            $("#ajax-overlay-body").css({
+                position: 'absolute',
+                top: '40%',
+                left: '50%',
+                width: '120px',
+                height: '48px',
+                'margin-top': '-12px',
+                'margin-left': '-60px',
+                //background: 'rgba(39, 38, 46, 0.1)',
+                '-webkit-border-radius': '10px',
+                '-moz-border-radius': '10px',
+                'border-radius': '10px'
+            });
+            $("#ajax-overlay").fadeIn(50);
+        };
+        $.ajaxunblock = function() {
+            $("#ajax-overlay").fadeOut(100, function() {
+                $("#ajax-overlay").remove();
+            });
+        };
+    })(jQuery);
 
+    function busqueda(ruc) {
+        //$this.button('loading');
+        $.ajaxblock();
+        $.ajax({
+            data: {
+                "nruc": $("#ruc").val()
+            },
+            type: "POST",
+            dataType: "json",
+            url: "sunat/consulta.php",
+        }).done(function(data, textStatus, jqXHR) {
+            if (data['success'] != "false" && data['success'] != false) {
+                $("#json_code").text(JSON.stringify(data, null, '\t'));
 
- 
+                var res = JSON.stringify(data['result']['RUC']);
+                // alert(data['result']['RUC']);
+                //console.log(JSON.stringify(respuesta));
+                $('#direccion').val(data['result']['Direccion']);
+                $('#nombre').val(data['result']['RazonSocial']);
+                $('#tipo').val(data['result']['Tipo']);
+                if (typeof(data['result']) != 'undefined') {
+
+                    //$("#tbody").html("");
+                    $.each(data['result'], function(i, v) {
+                        //$("#tbody").append('<tr><td>'+i+'<\/td><td>'+v+'<\/td><\/tr>');
+
+                    });
+                }
+
+                $.ajaxunblock();
+            } else {
+                if (typeof(data['msg']) != 'undefined') {
+                    alert(data['msg']);
+                    $('#direccion').val('');
+                    $('#tipo').val('');
+                    $('#nombre').val('');
+                }
+                //$this.button('reset');
+                $.ajaxunblock();
+            }
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            alert("Solicitud fallida:" + textStatus);
+            $.ajaxunblock();
+        });
+    }
     </script>

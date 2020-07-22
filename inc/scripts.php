@@ -1,4 +1,6 @@
 <script type="text/javascript" src="assets/js/jquery-min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
 <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
@@ -23,7 +25,10 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.js"></script>
 <script type="text/javascript" src="assets/js/cart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+<script src="assets/plugins/datepicker/bootstrap-datepicker.es.min.js"></script>
+<script src="assets/plugins/datepicker/daterangepicker.min.js"></script>
 
+ 
 
     <!-- Bootstrap bootstrap-touch-slider Slider Main JS File -->
     <script src="assets/js/bootstrap-touch-slider.js"></script>

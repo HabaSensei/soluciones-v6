@@ -1,12 +1,10 @@
-
 [canvas=container] {
- padding: 0px 10px;
-        width: 100%;
-
+    padding: 0px 10px;
+    width: 100%;
 }
 
 [off-canvas] {
-      padding: 0px 107px;
+    padding: 0px 107px;
     width: 69%;
 }
 

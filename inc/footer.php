@@ -197,7 +197,7 @@
 
 <!-- footer desktop -->
 
-<footer class="footer tre hidden-xs" role="contentinfo">
+<footer class="footer tre hidden-xs back_footer" role="contentinfo">
     <div class="footer-middle">
         <div class="container">
             <div class="row ds">

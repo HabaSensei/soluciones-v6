@@ -11,6 +11,9 @@
 
 <link href="assets/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/theme.min.css" type="text/css">
+
 <link href="assets/fonts/elegant_font/elegant_font.min.css" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/menu.css" type="text/css">
 
@@ -47,6 +50,6 @@
 <link href="assets/extras/slidebars.css" rel="stylesheet" type="text/css">
 <link href="assets/extras/style.css" rel="stylesheet" type="text/css">
 
-
-
+<link href="assets/plugins/datepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+ 
 
