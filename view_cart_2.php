@@ -1,5 +1,5 @@
 <!--
-Author: SOLUCIONES 2
+Author: SOLUCIONES v6
 Empresa: SOLUCIONES CCTV Y SISTEMAS
 Copyrigt: Uso Comercial 
 Licencia: Proveedor de servicios
