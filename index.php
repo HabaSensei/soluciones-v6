@@ -12,6 +12,7 @@ include 'library/configServer.php';
 include 'library/consulSQL.php';
 include 'library/config.php';
 include 'library/config-cctv.php';
+include 'library/config_redes.php';
 
 
 ?>
@@ -1082,7 +1083,22 @@ include 'library/config-cctv.php';
                     
 
     </section>
+    <section class="section" style="    padding-bottom: 22px;">
+        <div class="container">
+            <h1 class="section-title txt-rotate" data-period="2000"
+                data-rotate='[ "Productos de Seguridad en Oferta" ]'></h1>
+            <hr style="margin-bottom: 1px solid #333;">
+           <p class="mb-5" style="margin-top: 17px;
+    margin-bottom: 23px;" align="center">Productos en Oferta por Liquidacion 10% de Descuento al Publico en General 20% de Descuento 
+    solo Tecnicos Instaladores, Que Esten Registrado en Nuestra Web y si es Un Cliente Que Compra en Nuestra Tienda en Linea o Web Tiene un 30% de descuento en Toda Nuestras Sucursales.</p>
 
+            <div class="row">
+
+
+                <?php include 'inc/slider_redes.php'; ?>
+                
+                
+                    </section>
 
 
     <?php include 'inc/slider_bottom.php'; ?>

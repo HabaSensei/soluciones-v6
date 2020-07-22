@@ -291,6 +291,7 @@ include_once("library/config.inc.php");
         /* padding: 1em 0em !important; */
         padding: 1em 3em !important;
     }
+
     td.cakes_de {
         /* padding: 1em 0em !important; */
         padding: 1em 3em !important;
@@ -355,7 +356,7 @@ include_once("library/config.inc.php");
         color: #000;
         padding: 0.8em 2em;
         margin: 0.7em auto;
-        background: #ccc;
+        background: rgba(255, 255, 255, .15);
         display: inline-block;
         text-align: right;
     }
@@ -383,25 +384,31 @@ include_once("library/config.inc.php");
         background: #0b507c;
         border-radius: 3px;
     }
-   
+
     .table-fixed {
-	 width: 100%;
-	  
-}
- .table-fixed tbody {
-	 height: 350px;
-	 overflow-y: auto;
-	 width: 100%;
-}
- .table-fixed thead, .table-fixed tbody, .table-fixed tr, .table-fixed td, .table-fixed th {
-	 display: inline-block;
-}
- 
- .table-fixed thead tr th {
-	 float: left;
-	 
-}
- 
+        width: 100%;
+
+    }
+
+    .table-fixed tbody {
+        height: 350px;
+        overflow-y: auto;
+        width: 100%;
+    }
+
+    .table-fixed thead,
+    .table-fixed tbody,
+    .table-fixed tr,
+    .table-fixed td,
+    .table-fixed th {
+        display: inline-block;
+    }
+
+    .table-fixed thead tr th {
+        float: left;
+
+    }
+
 
 
 
@@ -410,7 +417,7 @@ include_once("library/config.inc.php");
 
     <main>
         <div class="container margin_60_35" style="    height: 140vh;" id="view_cart">
-         
+
             <!-- multistep form -->
             <form id="msform">
                 <!-- progressbar -->
@@ -424,18 +431,18 @@ include_once("library/config.inc.php");
                 <fieldset>
                     <div class="cart-bottom">
                         <div class="table table-fixed">
-                            <table >
-                            <thead>
-                                    <tr class="main-heading"   >
+                            <table>
+                                <thead>
+                                    <tr class="main-heading">
                                         <th>Imagen</th>
                                         <th class="long-txt">Descripcion</th>
                                         <th>Cantidad</th>
                                         <th>Precio</th>
                                         <th>Total</th>
                                     </tr>
-                            </thead>
+                                </thead>
                                 <tbody>
-                                    
+
                                     <?php
 									$cart_box = '<ul class="cart-products-loaded">';
 									$total = 0;
@@ -480,26 +487,28 @@ include_once("library/config.inc.php");
                                                 <p>Codigo: <?php echo $product_code; ?></p>
                                             </div>
                                         </td>
-                                        <td class="cakes quantity"  >
-                                            <div class="product-right" >
-                                            <input type="number" data-code="<?php echo $product_code; ?>"
-                                        class="form-control  quantity " style="border: 2px solid #6b6363;"
-                                        value="<?php echo $product_qty; ?>">
+                                        <td class="cakes quantity">
+                                            <div class="product-right">
+                                                <input type="number" data-code="<?php echo $product_code; ?>"
+                                                    class="form-control  quantity " style="border: 2px solid #6b6363;"
+                                                    value="<?php echo $product_qty; ?>">
                                             </div>
                                         </td>
                                         <td class="cakes price">
-                                        <?php echo $currency;
-													echo sprintf("&nbsp; %01.2f", number_format($product_price_total, 2) ); ?></h4>  
-                                                    
+                                            <?php echo $currency;
+													echo sprintf("&nbsp; %01.2f", number_format($product_price_total, 2) ); ?></h4>
+
                                         </td>
                                         <td class="cakes top-remove">
-                                        <h4><?php echo $currency;  
+                                            <h4><?php echo $currency;  
 													echo sprintf("&nbsp; %01.2f", round($product_price_total * $product_qty)); ?></h4>
                                             <div class="close-btm">
                                                 <a href="javascript:" class=" remove-item"
-                                        data-code="<?php echo $product_code; ?>"><h5>Remover</h5> </a>
+                                                    data-code="<?php echo $product_code; ?>">
+                                                    <h5>Remover</h5>
+                                                </a>
 
-                                        
+
                                             </div>
                                         </td>
 
@@ -510,15 +519,44 @@ include_once("library/config.inc.php");
                             </table>
                         </div>
                         <div class="vocher">
+                        <?php
+                        
+                        $grand_total = $total;
+                        foreach ($taxes as $key => $value) {
+                        $import = 1.18;
+                        $tax_amount = round($total - ($total / $import));
+                        $tax_item[$key] = $tax_amount;
+                        $grand_total = round($total + $tax_amount);
+                        }
+                        foreach ($tax_item as $key => $value) {
+                        $list_tax .= $key . ' : ' . $currency . number_format($value, 2) . '<br />';
+                        }
+                        //$shipping_cost = ($shipping_cost)?'Costo de envio : '.$currency. sprintf("%01.2f", $shipping_cost).'<br />':'';	
+                        //$shipping_cost
+                        $total_format = round($total / 1.18);
+                        ?>
+
+
+
 
                             <div class="dis-total">
-                                <h1>Total $38.97</h1>
+                                <h1>Sub Total:&nbsp;  <?php echo $currency. number_format($total_format, 2);  ?></h1>
+
+                            </div>
+                            <div class="clear"> </div>
+                            <div class="dis-total">
+                                <h1><?php echo $list_tax; ?></h1>
+
+                            </div>
+                            <div class="clear"> </div>
+                            <div class="dis-total">
+                                <h1>Total:&nbsp; <?php echo $currency. sprintf("%01.2f", $grand_total - $tax_amount);  ?></h1>
 
                             </div>
                             <div class="clear"> </div>
                         </div>
                     </div>
-                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input type="button" name="next" class="next action-button" value="Continuar" />
                 </fieldset>
                 <fieldset>
                     <h2>¿Que Desea Realizar?</h2>
@@ -543,34 +581,82 @@ include_once("library/config.inc.php");
 
                     </div>
                     <br><br>
-                    <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
+                    <input type="button" name="previous" class="previous action-button" value="Retroceder" />
+                    <input type="button" name="next" class="next action-button" value="Continuar" />
                 </fieldset>
                 <fieldset>
                     <div id="ifYes" style="display:none">
                         <h2 class="fs-title">Compras</h2>
-                        <h3 class="fs-subtitle">We will never sell it</h3>
-                        <input type="text" name="fname" placeholder="First Name" />
-                        <input type="text" name="lname" placeholder="Last Name" />
-                        <input type="text" name="phone" placeholder="Phone" />
-                        <textarea name="address" placeholder="Address"></textarea>
+                         
 
 
                     </div>
                     <div id="ifNo" style="display:none">
                         <h2 class="fs-title">Cotizar</h2>
-                        <h3 class="fs-subtitle">We will never sell it</h3>
-                        <input type="text" name="fname" placeholder="First Name" />
-                        <input type="text" name="lname" placeholder="Last Name" />
-                        <input type="text" name="phone" placeholder="Phone" />
-                        <textarea name="address" placeholder="Address"></textarea>
+                         
+                        <div class="shop-form">
+							<form method="post" action="process/regCotiza.php">
+								<div class="default-title">
+									<h2>POR FAVOR DIGITE SUS DATOS:</h2>
+								</div>
+								<div class="row" align="left" style="padding-right: 50px; padding-left: 50px;">
+									<div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <label>Ruc - Dni <sup>*</sup></label>
+                                    <input class="form-control" id="ruc" name="ruc" value=""  placeholder="Buscar Cliente" autocomplete="off" required>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" style="    color: #f5f5f5; background: #27ae60; top: -48px; left: 26.5em;font-weight: 600; position: absolute;
+    font-size: 17px;" type="submit" onclick="busqueda(this); return false" ><i class="fa fa-search" aria-hidden="true"></i> SUNAT</button>
+                                    </span>
+                                    <img src="ajax.gif" class="ajaxgif hide" style="position: absolute; margin-top: -10px; margin-left: 13px;">
+                                    </div>
+                                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+										<label>Correo<sup>*</sup></label>
+										<input type="email" name="correo" value="" placeholder="jhon@gmail.com" class="form-control" required>
+									</div><!-- /input-group -->
+									<div class="form-group col-md-6 col-sm-6 col-xs-12">
+										<label>Razón Social<sup>*</sup></label>
+										<input type="text" name="nombre" id="nombre"  placeholder="Razón Social" class="form-control" required>
+									</div>
+									
+									<div class="form-group col-md-6 col-sm-6 col-xs-12">
+										<label>Numero de Celular <sup>*</sup></label>
+										<input type="text" name="telefono" value="" placeholder="0044 43345523" class="form-control" required>
+									</div>
+									<div class="form-group col-md-12 col-sm-12 col-xs-12">
+										<label>Dirección Fiscal <sup>*</sup></label>
+										<input type="text" name="direccion" id="direccion" value="" placeholder="Dirección" class="form-control" required>
+									</div>
+										<label>&nbsp;&nbsp;&nbsp;&nbsp;Todos los Campos <sup>(*)</sup> son Obligatorios</label>
+									<?php 
+													 $cod=ejecutarSQL::consultar("SELECT RIGHT(id_cotizacion,6) as CodCotiza FROM cotizacion_online");
+													 $verificaltotal = mysqli_num_rows($cod);
+													 if($verificaltotal<=0){
+														 $codigo1="ON000000";
+														 }else {
+													 while($codigo=mysqli_fetch_assoc($cod)){
+													 $codigo=$codigo['CodCotiza']+1;
+													 $repo   = str_pad($codigo, 6, "0", STR_PAD_LEFT);
+													 $codigo1 = "ON$repo";
+													 //print_r($codigo);
+													  } }
+													 ?>	
+									<input type="hidden" name="CodCotiza" value="<?php echo $codigo1 ?>">
+									<input type="hidden" name="fecha" min="<?php echo date("Y-m-d");?>" max="<?php echo date("Y-m-d");?>" value="<?php echo date("Y-m-d");?>">
+                
+								</div>
+							
+						</div>
 
 
                     </div>
 
-                    <input type="button" name="previous" class="previous action-button" value="Previous" />
-                    <input type="button" name="next" class="next action-button" value="Next" />
-                    <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                    <input type="button" name="previous" class="previous action-button" value="Retroceder" />
+                    <input type="button" name="next" class="next action-button" value="Continuar" />
+                    
+                </fieldset>
+
+                <fieldset>
+                    <div>hola</div>
                 </fieldset>
 
             </form>
@@ -692,7 +778,91 @@ include_once("library/config.inc.php");
         });
     });
 
-    $(".submit").click(function() {
-        return false;
-    })
+(function($){
+$.ajaxblock    = function(){
+   $("body").prepend("<div id='ajax-overlay'><div id='ajax-overlay-body' class='center'><i class='fa fa-spinner fa-pulse fa-3x fa-fw'></i><span class='sr-only'>Loading...</span></div></div>");
+   $("#ajax-overlay").css({
+      position: 'absolute',
+      color: '#FFFFFF',
+      top: '0',
+      left: '0',
+      width: '100%',
+      height: '100%',
+      position: 'fixed',
+      background: 'rgba(39, 38, 46, 0.67)',
+      'text-align': 'center',
+      'z-index': '9999'
+   });
+   $("#ajax-overlay-body").css({
+      position: 'absolute',
+      top: '40%',
+      left: '50%',
+      width: '120px',
+      height: '48px',
+      'margin-top': '-12px',
+      'margin-left': '-60px',
+      //background: 'rgba(39, 38, 46, 0.1)',
+      '-webkit-border-radius':   '10px',
+      '-moz-border-radius':      '10px',
+      'border-radius':        '10px'
+   });
+   $("#ajax-overlay").fadeIn(50);
+};
+$.ajaxunblock  = function(){
+   $("#ajax-overlay").fadeOut(100, function()
+   {
+      $("#ajax-overlay").remove();
+   });
+};
+})(jQuery);
+     function busqueda(ruc){
+            //$this.button('loading');
+            $.ajaxblock();
+            $.ajax({
+               data: { "nruc" : $("#ruc").val() },
+               type: "POST",
+               dataType: "json",
+               url: "sunat/consulta.php",
+            }).done(function( data, textStatus, jqXHR ){
+               if(data['success']!="false" && data['success']!=false)
+               {
+                  $("#json_code").text(JSON.stringify(data, null, '\t'));
+
+                  var res = JSON.stringify(data['result']['RUC']);
+                 // alert(data['result']['RUC']);
+                           //console.log(JSON.stringify(respuesta));
+                  $('#direccion').val(data['result']['Direccion']);
+                  $('#nombre').val(data['result']['RazonSocial']);
+                  $('#tipo').val(data['result']['Tipo']);
+                  if(typeof(data['result'])!='undefined')
+                  {
+
+                     //$("#tbody").html("");
+                     $.each(data['result'], function(i, v)
+                     {
+                        //$("#tbody").append('<tr><td>'+i+'<\/td><td>'+v+'<\/td><\/tr>');
+                        
+                     });
+                  }
+
+                  $.ajaxunblock();
+               }else{
+                  if(typeof(data['msg'])!='undefined')
+                  {
+                     alert(data['msg']);
+                     $('#direccion').val('');
+                     $('#tipo').val('');
+                     $('#nombre').val('');
+                  }
+                  //$this.button('reset');
+                  $.ajaxunblock();
+               }
+            }).fail(function( jqXHR, textStatus, errorThrown ){
+               alert( "Solicitud fallida:" + textStatus );
+               $.ajaxunblock();
+            });
+}
+
+
+ 
     </script>

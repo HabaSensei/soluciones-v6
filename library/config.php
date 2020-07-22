@@ -42,7 +42,7 @@ $dbhost = 'localhost';
          $left_rec = $rec_count - ($page * $rec_limit);
          $otro=($page * $rec_limit);
          $sql = "SELECT `producto`.*, `perfil`.* FROM `producto` , `perfil`".
-            "LIMIT $offset, $rec_limit";
+            "LIMIT $offset, $rec_limit"; 
             
          $retval = mysqli_query( $conn ,  $sql);
          
