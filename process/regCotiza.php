@@ -49,7 +49,7 @@ session_start();
 					$product_qty = $product["product_qty"];
 					
 					$ordenU=  ejecutarSQL::consultar("SELECT `producto`.*, `perfil`.*, `producto`.`nro_cot` FROM `producto`	, `perfil`;");
-					
+					 
 					
 					
             while($ordenP=mysqli_fetch_assoc($ordenU)){

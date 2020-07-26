@@ -41,7 +41,7 @@ Licencia: Proveedor de servicios
 				<div class="breadcrumbs">
 		<div class="container">
 			
-		</div>
+		</div> 
 	</div>
 				<div class="col-md-7 col-sm-12 col-xs-12">
 					<div class="billing-details">

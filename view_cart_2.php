@@ -34,14 +34,14 @@ include_once("library/config.inc.php");
     </div>
     <style>
     /*form styles*/
-    #msform {
+    .msform {
         width: width: 100%;
         margin: 50px auto;
         text-align: center;
         position: relative;
     }
 
-    #msform fieldset {
+    .msform fieldset {
         background: white;
         border: 0 none;
         border-radius: 3px;
@@ -59,13 +59,13 @@ include_once("library/config.inc.php");
     }
 
     /*Hide all except first fieldset*/
-    #msform fieldset:not(:first-of-type) {
+    .msform fieldset:not(:first-of-type) {
         display: none;
     }
 
     /*inputs*/
-    #msform input,
-    #msform textarea {
+    .msform input,
+    .msform textarea {
         padding: 15px;
         border: 1px solid #ccc;
         border-radius: 3px;
@@ -78,7 +78,7 @@ include_once("library/config.inc.php");
     }
 
     /*buttons*/
-    #msform .action-button {
+    .msform .action-button {
         width: 100px;
         background: #27AE60;
         font-weight: bold;
@@ -90,8 +90,8 @@ include_once("library/config.inc.php");
         margin: 10px 5px;
     }
 
-    #msform .action-button:hover,
-    #msform .action-button:focus {
+    .msform .action-button:hover,
+    .msform .action-button:focus {
         box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
     }
 
@@ -111,14 +111,14 @@ include_once("library/config.inc.php");
     }
 
     /*progressbar*/
-    #progressbar {
+    .progressbar {
         margin-bottom: 30px;
         overflow: hidden;
         /*CSS counters to number the steps*/
         counter-reset: step;
     }
 
-    #progressbar li {
+    .progressbar li {
         list-style-type: none;
         color: white;
         text-transform: uppercase;
@@ -128,7 +128,7 @@ include_once("library/config.inc.php");
         position: relative;
     }
 
-    #progressbar li:before {
+    .progressbar li:before {
         content: counter(step);
         counter-increment: step;
         width: 20px;
@@ -142,7 +142,7 @@ include_once("library/config.inc.php");
     }
 
     /*progressbar connectors*/
-    #progressbar li:after {
+    .progressbar li:after {
         content: '';
         width: 100%;
         height: 2px;
@@ -154,15 +154,15 @@ include_once("library/config.inc.php");
         /*put it behind the numbers*/
     }
 
-    #progressbar li:first-child:after {
+    .progressbar li:first-child:after {
         /*connector not needed before the first step*/
         content: none;
     }
 
     /*marking active/completed steps green*/
     /*The number of the step and the connector before it = green*/
-    #progressbar li.active:before,
-    #progressbar li.active:after {
+    .progressbar li.active:before,
+    .progressbar li.active:after {
         background: #27AE60;
         color: white;
     }
@@ -433,22 +433,20 @@ include_once("library/config.inc.php");
     </style>
 
     <main>
-   
+    
 
-        <div class="container margin_60_35" style="    height: 155vh;" id="view_cart">
-
+        <div class="container margin_60_35" style="    height: 175vh;" id="view_cart">
+        
             <!-- multistep form -->
-        <form id="msform">
+            <form class="msform" method="post" action="process/ver_cotiza_2.php">
                 <!-- progressbar -->
-                <ul id="progressbar">
+                <ul class="progressbar">
                     <li class="active" style="color:black!important;">Carrito</li>
                     <li style="color:black!important;">Opciones</li>
                     <li style="color:black!important;">Detalles</li>
                     <li style="color:black!important;">Final</li>
                 </ul>
-
-            <form method="post"   action="process/ver_cotiza_2.php">  
-
+ 
                 <!-- fieldsets 1 -->
                 <fieldset>
                     <div class="cart-bottom">
@@ -491,7 +489,9 @@ include_once("library/config.inc.php");
 										$subtotal = ($product_price_total * $product_qty);
 										$total = ($total + $subtotal);
 										?>
-
+                                
+								<input type="hidden" name="total" value="<?php echo $total ?>">
+								<input type="hidden" name="nro_cot" value="<?php echo $product_qty ?>">
 
 
                                     <tr class="cake-top">
@@ -885,18 +885,15 @@ include_once("library/config.inc.php");
 
                     </div>
                     <input type="button" name="previous" class="previous action-button" value="Retroceder" />
-                    <button type="submit"  class="btn_full" formtarget="_blank" > </button>
-                  
+                   
+                    <button type="submit" target="_blank"   class="btn_full"  >Enviar </button>
                 </fieldset>
-
-      
-              
+            
+            </form>
         
+     
 
-
-        </form>
-
-        </form>
+        
 
 
 
@@ -910,6 +907,15 @@ include_once("library/config.inc.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <script>
+
+function ordenar()
+{
+     document.getElementById("form_cotiza").submit();
+} 
+
+
+
+
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',
         prevText: '< Ant',
@@ -977,7 +983,7 @@ include_once("library/config.inc.php");
         next_fs = $(this).parent().next();
 
         //activate next step on progressbar using the index of next_fs
-        $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+        $(".progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
         //show the next fieldset
         next_fs.show();
@@ -1020,7 +1026,7 @@ include_once("library/config.inc.php");
         previous_fs = $(this).parent().prev();
 
         //de-activate current step on progressbar
-        $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+        $(".progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
 
         //show the previous fieldset
         previous_fs.show();
