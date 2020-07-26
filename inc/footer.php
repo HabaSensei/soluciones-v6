@@ -94,11 +94,13 @@
                     <li class="f_ali_izq"><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
                         <a href="sucursal.php">Sucursales </a></li>
 
-                    <li class="f_ali_izq"><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
-                        <a href="https://drive.google.com/file/d/1URqLgL_V6qYE7Qqgy3wFNQ2iRICB_11D/view?usp=sharing">Catalogos </a>
+                         <li class="f_ali_izq"><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
+                        <a href="Pedidos.php">Mis Pedidos </a>
                         
+                   
                          <li class="f_ali_izq"><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
                         <a href="descargas.php">Descargas </a>
+                        
                     </li>
                 </ul>
             </div>
@@ -136,10 +138,10 @@
     <ul style="">
                         
                         <div class="listado-precio-footer" style="" align="center">
-                            <a href="registros.php">Registro de Usuarios - Tecnicos</a>
+                            <a href="https://drive.google.com/file/d/1oO7VrZeI76MqPM03ZX5oM4YTWh6h5lBJ/view?usp=sharing">Lista de Precios Soluciones</a>
                         </div>
                         <div class="listado-precio-footer" aria-hidden="true"></i> <a
-                            href="lista_precio.php"> Listas de Precios Computo - Cctv </a></li>
+                            href="libro.php"> Libro de Reclamaciones </a></li>
                    
 
 
@@ -254,10 +256,10 @@
                     <ul style="display: inline-flex; position: absolute;  left: -84px;  top: 191px; width: 110%; ">
                         
                             <div class="listado-precio-footer" style="position: relative; z-index: 100;     margin-right: 18px;" align="center">
-                                <a href="registro.php">Registro de Usuarios  Tecnicos</a>
+                                <a href="lista_precio.php">Lista de Precios Soluciones</a>
                             </div>
                             <div class="listado-precio-footer" style="position: relative; z-index: 100;" align="center">
-                                </i> <a href="lista_precio.php"> Listas de Precios Computo - Cctv </a></li>
+                                </i> <a href="libro.php"> Libro de Reclamaciones </a></li>
                             </div>
                        
 
@@ -285,12 +287,15 @@
                                     Contactar</a></li>
                             <li><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
                                 <a href="sucursal.php">Sucursales </a></li>
+                            
                             <li><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
-                                <a href="catalogo.php">Catalogos
+                                <a href="pedidos.php">Mis Pedidos
+
                             <li><i class="fa fa-arrow-right redMenu" aria-hidden="true"></i>
                                 <a href="descargas.php">Descargas
                                 </a></li>
-
+                                
+                                
 
 
                         </ul>

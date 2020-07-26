@@ -1,35 +1,37 @@
-	<!--
+<!--
 Author: SOLUCIONES
 Empresa: SOLUCIONES CCTV Y SISTEMAS 
 Copyrigt: Uso Comercial 
 Licencia: Proveedor de servicios
 
 -->
-	<?php
-	error_reporting(E_PARSE);
-	session_start();
-	include 'library/configServer.php';
-	include 'library/consulSQL.php';
-	include 'library/config.php';
+<?php
+error_reporting(E_PARSE);
+session_start();
+include 'library/configServer.php';
+include 'library/consulSQL.php';
+include 'library/config2.php';
 
-	?>
+?>
 
-	<!DOCTYPE html>
-	<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 
-	<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	    <?php include 'inc/links.php'; ?>
-	</head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <?php include 'inc/links.php'; ?>
+</head>
 
-	<body>
+<body>
+	
+    <?php include_once 'inc/navbar-prod.php'; ?>
+    <?php include_once 'inc/navbar-mobile.php'; ?>
 
-	    <?php include_once 'inc/navbar-mobile.php'; ?>
-	    <?php include 'inc/navbar-prod.php'; ?>
 
-	    </nav>
-	    </div>
-	 <section style="    background: #f5f5f5;     padding-bottom: 1%;">
+
+    </nav>
+    </div>
+    <section style="    background: #f5f5f5;     padding-bottom: 1%;">
 	<div id="get_quote" class="ajuste">
 			<div class="container  animated fadeInUp">
 				<div class="row">
@@ -37,7 +39,7 @@ Licencia: Proveedor de servicios
 						<h3 class="hidden-xs">¿ Estas Buscando un Producto Para su Hogar, Empresa ?</h3>
 					</div>
 					<div class="col-md-3">
-						 <button class="button-two bton-serv hidden-xs" onclick="window.location.href='view_cart.php'"><span>¿ COTIZA AQUI ?</span></button>
+						 <button class="button-two bton-serv hidden-xs" onclick="window.location.href='formulario_servicios.php'"><span>¿ COTIZA AQUI ?</span></button>
 					</div>
 				</div><!-- End row -->
 			</div><!-- End container -->
@@ -50,10 +52,12 @@ Licencia: Proveedor de servicios
      en Nuestra Web y si es Un Cliente Que Compra en Nuestra Tienda en Linea o Web Tiene un 30% de descuento en Toda Nuestras Sucursales.</p>
         
        </section>
-			
-	    <?php include 'inc/categorias.php'; ?>
 
-	    <div class="col-md-9 col-sm-9 col-xs-12 ali-prod-top-2">
+
+
+    <?php include 'inc/categorias.php'; ?>
+
+     <div class="col-md-9 col-sm-9 col-xs-12 ">
 	        <div class="shop-content">
 
 
@@ -65,7 +69,7 @@ Licencia: Proveedor de servicios
 
 
 						while ($row = mysqli_fetch_array($retval,  MYSQLI_ASSOC)) {
-							$precio = $row['Precio']; 
+							$precio = $row['Precio'];
 							$ganancia = $row['ganancia'];
 							$medio = $row['medio'];
 							$total_prod = $precio * ($ganancia + $medio) / 100 + $precio;
@@ -79,14 +83,13 @@ Licencia: Proveedor de servicios
 								"<a href='infoProd.php?CodigoProd={$row['CodigoProd']}' class='item-image'><img value='{$row['Imagen']}' style='border: solid 1.2px; border-bottom: none;'  height='250px' width='500' src='assets/img-products/{$row['Imagen']} ' alt=''></a>" .
 								"<div class='cart-overlay'></div>" .
 								"<div class='actions'>
-								<div class='add-to-links'>
-			
-								<input name='product_qty' type='hidden' value='1'>" .
+		    <div class='add-to-links'>
+		    <input name='product_qty' type='hidden' value='1'>" .
 								"<input name='CodigoProd' type='hidden' value='{$row['CodigoProd']}'>" .
 								"<button  class='btn-cart  my-cart-btn btn-common' type='submit'><i class='icon-basket'></i>&nbsp;&nbsp;Añadir</button>" .
 								"<a class='btn-quickview md-trigger' href='infoProd.php?CodigoProd={$row['CodigoProd']}'><i class='icon-eye'></i>&nbsp;&nbsp;Ver Producto</a>" .
 								"</div>
-								</div>
+		    </div>
 		    
 		    </div>" .
 								"<div class='' style='padding: 0px 15px 0px; border-top: 1px dashed; padding-right: 9px; padding-left: 12px; background: #eae8e8e6; border-left: 1px dashed; border-right: 1px dashed;'>" .
@@ -105,44 +108,44 @@ Licencia: Proveedor de servicios
          ";
 
 						$final = $rec_count / $rec_limit;
-						$start = (($page - $final) > 0) ? $page - $final : 0;
-						$end  = (($page + $final) < $final) ? $page + $final : $final;
-						$end_format = round($end, 0, PHP_ROUND_HALF_DOWN);
+					$start = (($page - $final) > 0) ? $page - $final : 0;
+					$end  = (($page + $final) < $final) ? $page + $final : $final;
+					$end_format = round($end, 0, PHP_ROUND_HALF_DOWN);
 
-						if ($page == 0) {
+					if ($page == 0) {
 
-							for ($i = $start; $i <= $end; $i++) {
-								$class  = ($page == $i) ? "active" : "";
-								$sig = ($page + $i);
-								echo "<li class=" . $class . "><a href = \"productos.php?page=$sig\"> $i </a></li>";
-							}
+						for ($i = $start; $i <= $end; $i++) {
+							$class  = ($page == $i) ? "active" : "";
+							$sig = ($page + $i);
+							echo "<li class=" . $class . "><a href = \"infoCat.php?CodigoCat=$CodProd&page=$sig\"> $i </a></li>";
+						}
+						$dale  = ($page + 1);
+						echo "<li ><a href = \"infoCat.php?CodigoCat=$CodProd&page=$dale\">Siguiente</a></li>";
+					} else if ($page > 0) {
+						$atras  = ($page - 1);
+						echo "<li ><a href = \"infoCat.php?CodigoCat=$CodProd&page=$atras\">Previo</a></li>";
+						for ($i = $start; $i <= $end; $i++) {
+
+							$class  = ($page == $i) ? "active" : "";
+
+							echo "<li class=" . $class . "><a href = \"infoCat.php?CodigoCat=$CodProd&page=$i\"> $i </a></li>";
+						}
+
+						if ($page == $end_format) {
+							$dale  = ($page);
+							echo "<li class='disabled'><a href = \"infoCat.php?CodigoCat=$CodProd&page=$dale\">Siguiente </a></li>";
+						} else {
 							$dale  = ($page + 1);
-							echo "<li ><a href = \"productos.php?page=$dale\">Siguiente</a></li>";
-						} else if ($page > 0) {
-							$atras  = ($page - 1);
-							echo "<li ><a href = \"productos.php?page=$atras\">Previo</a></li>";
-							for ($i = $start; $i <= $end; $i++) {
-
-								$class  = ($page == $i) ? "active" : "";
-
-								echo "<li class=" . $class . "><a href = \"productos.php?page=$i\"> $i </a></li>";
-							}
-
-							if ($page == $end_format) {
-								$dale  = ($page);
-								echo "<li class='disabled'><a href = \"productos.php?page=$dale\">Siguiente </a></li>";
-							} else {
-								$dale  = ($page + 1);
-								echo "<li ><a href = \"productos.php?page=$dale\">Siguiente</a></li>";
-							}
-						} else if ($rec_limit >  $rec_count) {
-							echo "$rec_limit.$rec_count";
-						} else if ($rec_count < $rec_limit) { }
-						echo "</ul></div></div>";
+							echo "<li ><a href = \"infoCat.php?CodigoCat=$CodProd&page=$dale\">Siguiente</a></li>";
+						}
+					} else if ($rec_limit >  $rec_count) {
+						echo "$rec_limit.$rec_count";
+					} else if ($rec_count < $rec_limit) { }
+					echo "</ul></div></div>";
 
 
 
-						?>
+					?>
 
 
 	                </div>
@@ -154,7 +157,6 @@ Licencia: Proveedor de servicios
 	    </div>
 
 	    </div>
-
 
 
 </section>
@@ -191,14 +193,20 @@ Licencia: Proveedor de servicios
 	            </script>
 	            <!-- /WhatsHelp.io widget -->
 
-	    <?php include 'inc/slider_bottom.php'; ?>
-	    <?php include 'inc/footer.php'; ?>
-	    <?php include 'inc/scripts.php'; ?>
 
 
 
 
-	</body>
+
+    <?php include 'inc/slider_bottom.php'; ?>
+    <?php include 'inc/footer.php'; ?>
+    <?php include 'inc/scripts.php'; ?>
 
 
-	</html>
+
+
+
+</body>
+
+
+</html>

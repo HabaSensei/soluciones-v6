@@ -23,7 +23,7 @@
 			
 		    <input name='product_qty' type='hidden' value='1'>" .
 			"<input name='CodigoProd' type='hidden' value='{$rowProd['CodigoProd']}'>" .
-			"<button  class='btn-cart  my-cart-btn btn-common' type='submit'><i class='icon-basket'></i>&nbsp;&nbsp;Comprar</button>" .
+			"<button  class='btn-cart  my-cart-btn btn-common' type='submit'><i class='icon-basket'></i>&nbsp;&nbsp;Añadir</button>" .
 			"<a class='btn-quickview md-trigger' href='infoProd.php?CodigoProd={$rowProd['CodigoProd']}'><i class='icon-eye'></i>&nbsp;&nbsp;Ver Producto</a>" .
 			"</div>
 		    </div>

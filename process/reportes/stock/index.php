@@ -51,7 +51,7 @@
 	$total= $i++;
 	$pdf->SetFont('Arial','B',15);
 	   $pdf->Ln(10);
-	   $pdf->Cell(190,6,'Total de productos en almacen = '.$total.'',1,0,'C',1);
+	   $pdf->Cell(190,6,'Total de Productos en Estock = '.$total.'',1,0,'C',1);
 	
 	    
 	

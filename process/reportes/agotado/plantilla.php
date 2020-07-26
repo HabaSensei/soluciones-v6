@@ -11,9 +11,9 @@
 		{
 			
 			$this->Image('images/logo.png', 10, 10, 20 );
-			$this->SetFont('Arial','B',15);
+			$this->SetFont('Arial','B',14);
 			$this->Cell(30);
-			$this->Cell(120,10, 'Reporte De Inventario Almacen',0,0,'C');
+			$this->Cell(120,10, 'REPORTE TOTAL DE PRODUCTOS AGOTADOS',0,0,'C');
 			$this->Ln(10);
 			$this->Cell(180,10, 'SOLUCIONES CCTV & SISTEMAS',0,0,'C');
 			$this->SetFont('Arial','B',12);

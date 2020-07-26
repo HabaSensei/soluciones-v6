@@ -21,9 +21,9 @@
 	$pdf->Cell(57,6,'Articulo',1,0,'C',1);
 	$pdf->Cell(35,6,'Modelo',1,0,'C',1);
 	$pdf->Cell(30,6,'Marca',1,0,'C',1);
-	$pdf->Cell(15,6,'Precio S/.',1,0,'C',1);
-	$pdf->Cell(15,6,'Stock',1,0,'C',1);
-	$pdf->Cell(20,6,'Categoria',1,1,'C',1);
+	$pdf->Cell(15,6,'P_compra',1,0,'C',1);
+	$pdf->Cell(15,6,'P_venta',1,0,'C',1);
+	$pdf->Cell(20,6,'Stock',1,1,'C',1);
 	
 	
 	
@@ -41,17 +41,17 @@
 		$pdf->Cell(57,6,$row['NombreProd'],1,0,'L');
 		$pdf->Cell(35,6,$row['Modelo'],1,0,'L');
 		$pdf->Cell(30,6,$row['Marca'],1,0,'L');
+		$pdf->Cell(15,6,utf8_decode($row['Compra']),1,0,'C');
 		$pdf->Cell(15,6,utf8_decode($row['Precio']),1,0,'C');
-		$pdf->Cell(15,6,utf8_decode($row['Stock']),1,0,'C');
-		$pdf->Cell(20,6,utf8_decode($row['CodigoCat']),1,1,'C');
+		$pdf->Cell(20,6,utf8_decode($row['Stock']),1,1,'C');
 		
 		
 		
 	}
 	$total= $i++;
-	$pdf->SetFont('Arial','B',15);
+	$pdf->SetFont('Arial','B',14);
 	   $pdf->Ln(10);
-	   $pdf->Cell(190,6,'Total de productos en almacen = '.$total.'',1,0,'C',1);
+	   $pdf->Cell(190,6,'Total de Productos Agotados = '.$total.'',1,0,'C',1);
 	
 	    
 	

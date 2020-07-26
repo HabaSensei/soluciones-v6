@@ -12,7 +12,7 @@
 
 
 </div>
-<img class="hidden-xs" src="assets/img/whatsapp.svg" width="25px;"  height="33px;"><span class="hidden-xs"> Contactanos  :986-838-333</span>
+<img class="hidden-xs" src="assets/img/whatsapp.svg" width="25px;"  height="33px;"><span class="hidden-xs"> Fonocompras  986-838-333</span>
 </div>
 
 

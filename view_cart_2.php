@@ -412,6 +412,20 @@ include_once("library/config.inc.php");
 
     }
 
+     .payment-options li .radio-option label .small-text {
+        position: relative;
+        display: block;
+        margin-top: 15px;
+        margin-left: -30px;
+        padding: 10px 15px;
+        letter-spacing: 0;
+        text-transform: none;
+        font-weight: 400;
+        font-size: 14px;
+        color: #888;
+        line-height: 20px;
+        background: #fff;
+    }
 
 
 
@@ -419,10 +433,12 @@ include_once("library/config.inc.php");
     </style>
 
     <main>
-        <div class="container margin_60_35" style="    height: 140vh;" id="view_cart">
+   
+
+        <div class="container margin_60_35" style="    height: 155vh;" id="view_cart">
 
             <!-- multistep form -->
-            <form id="msform">
+        <form id="msform">
                 <!-- progressbar -->
                 <ul id="progressbar">
                     <li class="active" style="color:black!important;">Carrito</li>
@@ -430,6 +446,9 @@ include_once("library/config.inc.php");
                     <li style="color:black!important;">Detalles</li>
                     <li style="color:black!important;">Final</li>
                 </ul>
+
+            <form method="post"   action="process/ver_cotiza_2.php">  
+
                 <!-- fieldsets 1 -->
                 <fieldset>
                     <div class="cart-bottom">
@@ -610,7 +629,7 @@ include_once("library/config.inc.php");
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 <label>Ruc - Dni <sup>*</sup></label>
                                 <input class="form-control" id="ruc" name="ruc" value="" placeholder="Buscar Cliente"
-                                    autocomplete="off" required>
+                                    autocomplete="off" >
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" style="    color: #f5f5f5; background: #27ae60; top: -48px; left: 26.5em;font-weight: 600; position: absolute;
                                         font-size: 17px;" type="submit" onclick="busqueda(this); return false"><i
@@ -622,23 +641,23 @@ include_once("library/config.inc.php");
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 <label>Correo<sup>*</sup></label>
                                 <input type="email" name="correo" value="" placeholder="jhon@gmail.com"
-                                    class="form-control" required>
+                                    class="form-control" >
                             </div><!-- /input-group -->
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 <label>Razón Social<sup>*</sup></label>
                                 <input type="text" name="nombre" id="nombre" placeholder="Razón Social"
-                                    class="form-control" required>
+                                    class="form-control" >
                             </div>
 
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 <label>Numero de Celular <sup>*</sup></label>
                                 <input type="text" name="telefono" value="" placeholder="0044 43345523"
-                                    class="form-control" required>
+                                    class="form-control" >
                             </div>
                             <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                 <label>Dirección Fiscal <sup>*</sup></label>
                                 <input type="text" name="direccion" id="direccion" value="" placeholder="Dirección"
-                                    class="form-control" required>
+                                    class="form-control" >
                             </div>
 
                         </div>
@@ -675,7 +694,7 @@ include_once("library/config.inc.php");
 
                                 <label style="float:left">Fecha de Despacho <sup>*</sup></label>
                                 <input type="text" name="F_despacho" id="F_despacho" class="form-control "
-                                    placeholder="dd/mm/yy" required>
+                                    placeholder="dd/mm/yy" >
 
 
                             </div>
@@ -739,77 +758,145 @@ include_once("library/config.inc.php");
                 <!-- fieldsets 4-->
                 <fieldset>
                     <div id="descarga_cotiza" style="display:none">
-                        <h2 class="fs-title">Cotiza</h2>
-                    </div>
-                    <div id="descarga_compras" style="display:none">
-                        <h2 class="fs-title">Compras</h2>
+                    <div class="default-title">
+                                        <h2>TERMINOS DE COTIZACIÓN</h2>
+                                    </div>
                         <div class="row">
                             <div class="col-md-6">
-                            <div class="payment-method" align="center">
-                            <label for="comprar" class="method cart-checkout">
+                                <div class="payment-method" align="center">
+                                    <label for="comprar" class="method cart-checkout">
 
-                                <img style="width: 400px;" src="assets\img\comprar2.svg" />
+                                        <img style="width: 400px;" src="assets\img\cotizar.svg" />
 
+                                        </label>
+                                        Gracias por cotizar
+                                </div>
 
-                                Gracias Por su Compra
-                        </div>
+                               
 
-                        </label>
-                        <p> Contactar con el </p>
                             </div>
                             <div class="col-md-6">
-                            <div class="place-order add_bottom_30">
-						<div class="default-title">
-							<h2>TERMINOS DE COMPRA Y RECOJO EN TIENDA : </h2>
-						</div>
-						<div class="payment-options">
-							<ul>
-								<li>
-								<div class="radio-option">
-									<label for="payment-1"><span class="small-text">*Revise Su Correo, y Descargue su Orden de Compra.</span></label>
-								</div>
-								</li>
-								<li>
-								<div class="radio-option">
-									<label for="payment-1"><span class="small-text">*Aperturarse a la Tienda, Con su Orden de Compra.</span></label>
-								</div>
-								</li>
-								<li>
-								<div class="radio-option">
-									<label for="payment-1"><span class="small-text">*Cancelar El Importe Total de su Orden de Compra.</span></label>
-								</div>
-								</li>
-								<li>
-								<div class="radio-option">
-									<label for="payment-1"><span class="small-text">*Recoger Su Productos Comprados En Almacen.</span></label>
-								</div>
-								</li>
-									
-							</ul>
-						</div>
-						 
-					
-					 
+                                <div class="place-order ">
+                                    
+                                    <div class="payment-options">
+                                        <ul style="list-style-type: none;">
+                                        <br>
+                                            <li >
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Revise Su Correo, y
+                                                            Descargue su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Aperturarse a la
+                                                            Tienda, Con su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Cancelar El Importe
+                                                            Total de su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Recoger Su
+                                                            Productos Comprados En Almacen.</span></label>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+
+                                </div>
                             </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                    <div id="descarga_compras" style="display:none">
+                    <div class="default-title">
+                                        <h2>TERMINOS DE COMPRA </h2>
+                                    </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="payment-method" align="center">
+                                    <label for="comprar" class="method cart-checkout">
+
+                                        <img style="width: 400px;" src="assets\img\comprar2.svg" />
+
+                                        </label>
+                                        Gracias por su Compra
+                                </div>
+
+                               
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="place-order ">
+                                    
+                                    <div class="payment-options">
+                                        <ul style="list-style-type: none;">
+                                        <br>
+                                            <li >
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Revise Su Correo, y
+                                                            Descargue su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Aperturarse a la
+                                                            Tienda, Con su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Cancelar El Importe
+                                                            Total de su Orden de Compra.</span></label>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="radio-option">
+                                                    <label for="payment-1"><span class="small-text">*Recoger Su
+                                                            Productos Comprados En Almacen.</span></label>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+
+
+
+
                         </div>
 
-                        
-
-
-                        
                     </div>
+                    <input type="button" name="previous" class="previous action-button" value="Retroceder" />
+                    <button type="submit"  class="btn_full" formtarget="_blank" > </button>
+                  
+                </fieldset>
 
-        </div>
-        <input type="button" name="previous" class="previous action-button" value="Retroceder" />
-        <input type="button" name="next" class="next action-button" value="Enviar" />
-        </fieldset>
+      
+              
+        
+
 
         </form>
 
-
-
-
-
+        </form>
 
 
 

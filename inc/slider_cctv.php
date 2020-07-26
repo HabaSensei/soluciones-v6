@@ -19,7 +19,7 @@
 		    <div class='add-to-links'>
 		    <input name='product_qty' type='hidden' value='1'>" .
 			"<input name='CodigoProd' type='hidden' value='{$row['CodigoProd']}'>" .
-			"<button  class='btn-cart btn-common  my-cart-btn' type='submit'><i class='icon-basket'></i>&nbsp;&nbsp;Comprar</button>" .
+			"<button  class='btn-cart btn-common  my-cart-btn' type='submit'><i class='icon-basket'></i>&nbsp;&nbsp;Añadir</button>" .
 			"<a class='btn-quickview md-trigger' href='infoProd.php?CodigoProd={$row['CodigoProd']}'><i class='icon-eye'></i>&nbsp;&nbsp;Ver Producto</a>" .
 			"</div>
 		    </div>
