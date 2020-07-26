@@ -4,7 +4,7 @@
 	
 	$query = "SELECT `producto`.*, `producto`.`Stock`
 	FROM `producto`
-	WHERE `producto`.`Stock` >= '0' ORDER BY `Stock` ASC";
+	WHERE `producto`.`Stock` >= '0' ORDER BY `CodigoProd` ASC";
 	$resultado = $mysqli->query($query);
 	
 	//$row_cnt = mysqli_num_rows($query);
